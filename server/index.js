@@ -16,7 +16,9 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-  socket.join("join_room", (data) => {
+  console.log(socket.id, "hello");
+
+  socket.on("join_room", (data) => {
     socket.join(data);
   });
 
@@ -29,6 +31,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
+server.listen(5050, () => {
   console.log("Server Start");
 });
